@@ -1,0 +1,4 @@
+# file: /Users/razinm/Downloads/Jan Sewa/backend/app/api/v1/endpoints/ocr.py
+# hypothesis_version: 6.151.9
+
+[0.85, 202, 400, 404, 500, 503, '/analyze-document', '/engine-info', '/extract-identity', '/history', '/learning/insights', '/process', '/process-s3', '/statistics', '/{job_id}/result', '/{job_id}/retry', '/{job_id}/status', 'FORMS', 'TABLES', 'action', 'capabilities', 'completed', 'confidence', 'confidence_before', 'confirmed', 'corrected_value', 'document_type', 'duration_seconds', 'edited', 'eng', 'engine', 'field_name', 'fields', 'forms', 'forms_count', 'highlight_color', 'identity_documents', 'job_id', 'needs_review', 'normalized_value', 'original_value', 'queued', 'rejected', 'result', 'result_summary', 's3_integration', 'status', 'success', 'tables', 'tables_count', 'task_id', 'text', 'textract', 'textract_available', 'timestamp', 'total_corrections', 'unknown', 'value']

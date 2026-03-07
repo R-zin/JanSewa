@@ -605,6 +605,29 @@ resource "aws_iam_role_policy" "ecs_task_s3" {
   })
 }
 
+# Policy for AWS Textract access
+resource "aws_iam_role_policy" "ecs_task_textract" {
+  name = "textract-access"
+  role = aws_iam_role.ecs_task.id
+  
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [{
+      Effect = "Allow"
+      Action = [
+        "textract:DetectDocumentText",
+        "textract:AnalyzeDocument",
+        "textract:AnalyzeID",
+        "textract:StartDocumentTextDetection",
+        "textract:GetDocumentTextDetection",
+        "textract:StartDocumentAnalysis",
+        "textract:GetDocumentAnalysis"
+      ]
+      Resource = "*"
+    }]
+  })
+}
+
 # Policy for Secrets Manager access
 resource "aws_iam_role_policy" "ecs_task_secrets" {
   name = "secrets-access"

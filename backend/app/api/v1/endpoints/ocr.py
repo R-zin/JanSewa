@@ -12,7 +12,7 @@ from datetime import datetime
 from enum import Enum
 
 from app.services.ocr_workflow import OCRWorkflow, ProcessingStatus
-from app.services.ocr_engine import OCREngine
+from app.services.ocr_engine_hybrid import hybrid_ocr_engine
 from app.services.document_parser import DocumentParser, DocumentType
 from app.services.manual_correction import ManualCorrectionInterface, CorrectionAction
 
@@ -20,7 +20,6 @@ router = APIRouter()
 
 # Initialize services
 ocr_workflow = OCRWorkflow()
-ocr_engine = OCREngine()
 document_parser = DocumentParser()
 manual_correction = ManualCorrectionInterface()
 
@@ -588,4 +587,213 @@ async def get_learning_insights():
         raise HTTPException(
             status_code=500,
             detail=f"Failed to retrieve learning insights: {str(e)}"
+        )
+
+
+# AWS Textract-specific endpoints
+
+@router.post("/analyze-document", response_model=Dict[str, Any])
+async def analyze_document_advanced(
+    file: UploadFile = File(...),
+    extract_forms: bool = True,
+    extract_tables: bool = True
+):
+    """
+    Advanced document analysis using AWS Textract
+    
+    Extracts forms (key-value pairs) and tables from documents.
+    Requires AWS Textract to be enabled.
+    
+    Args:
+        file: Document file to analyze
+        extract_forms: Extract form fields (key-value pairs)
+        extract_tables: Extract table structures
+    
+    Returns:
+        Structured document analysis with forms and tables
+    
+    Raises:
+        HTTPException: If Textract not available or analysis fails
+    """
+    try:
+        # Check if Textract is available
+        engine_info = hybrid_ocr_engine.get_engine_info()
+        if not engine_info['textract_available']:
+            raise HTTPException(
+                status_code=503,
+                detail="AWS Textract not available. Advanced document analysis requires Textract."
+            )
+        
+        # Read file
+        image_data = await file.read()
+        
+        # Determine feature types
+        feature_types = []
+        if extract_forms:
+            feature_types.append('FORMS')
+        if extract_tables:
+            feature_types.append('TABLES')
+        
+        if not feature_types:
+            raise HTTPException(
+                status_code=400,
+                detail="At least one feature type (forms or tables) must be enabled"
+            )
+        
+        # Analyze document
+        result = hybrid_ocr_engine.analyze_document(image_data, feature_types)
+        
+        return {
+            "success": True,
+            "text": result['text'],
+            "forms_count": len(result.get('forms', [])),
+            "tables_count": len(result.get('tables', [])),
+            "forms": result.get('forms', []),
+            "tables": result.get('tables', []),
+            "confidence": result['confidence'],
+            "engine": "textract"
+        }
+    
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Document analysis failed: {str(e)}"
+        )
+
+
+@router.post("/extract-identity", response_model=Dict[str, Any])
+async def extract_identity_document(
+    file: UploadFile = File(...)
+):
+    """
+    Extract data from identity documents (Aadhaar, PAN, etc.)
+    
+    Uses AWS Textract's AnalyzeID API for specialized identity
+    document extraction with high accuracy.
+    
+    Args:
+        file: Identity document image
+    
+    Returns:
+        Structured identity document data
+    
+    Raises:
+        HTTPException: If Textract not available or extraction fails
+    """
+    try:
+        # Check if Textract is available
+        engine_info = hybrid_ocr_engine.get_engine_info()
+        if not engine_info['capabilities']['identity_documents']:
+            raise HTTPException(
+                status_code=503,
+                detail="Identity document extraction requires AWS Textract"
+            )
+        
+        # Read file
+        image_data = await file.read()
+        
+        # Extract identity document
+        result = hybrid_ocr_engine.extract_identity_document(image_data)
+        
+        return {
+            "success": True,
+            "document_type": result.get('document_type', 'unknown'),
+            "fields": result.get('fields', {}),
+            "confidence": result['confidence'],
+            "engine": "textract"
+        }
+    
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Identity document extraction failed: {str(e)}"
+        )
+
+
+@router.get("/engine-info", response_model=Dict[str, Any])
+async def get_ocr_engine_info():
+    """
+    Get information about available OCR engines
+    
+    Returns details about which OCR engines are available,
+    their capabilities, and current configuration.
+    
+    Returns:
+        Engine information and capabilities
+    """
+    try:
+        info = hybrid_ocr_engine.get_engine_info()
+        return info
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Failed to retrieve engine info: {str(e)}"
+        )
+
+
+@router.post("/process-s3", response_model=OCRProcessResponse, status_code=202)
+async def process_document_from_s3(
+    bucket_name: str,
+    object_key: str,
+    language: str = 'eng',
+    background_tasks: BackgroundTasks = None
+):
+    """
+    Process document directly from S3 using AWS Textract
+    
+    For large documents or async processing, documents can be
+    processed directly from S3 without uploading through the API.
+    
+    Args:
+        bucket_name: S3 bucket name
+        object_key: S3 object key
+        language: Language code
+        background_tasks: FastAPI background tasks
+    
+    Returns:
+        Job ID for tracking
+    
+    Raises:
+        HTTPException: If Textract not available or processing fails
+    """
+    try:
+        # Check if Textract is available
+        engine_info = hybrid_ocr_engine.get_engine_info()
+        if not engine_info['capabilities']['s3_integration']:
+            raise HTTPException(
+                status_code=503,
+                detail="S3 processing requires AWS Textract"
+            )
+        
+        # Create document ID from S3 path
+        document_id = f"s3_{bucket_name}_{object_key.replace('/', '_')}"
+        
+        # Submit task
+        job_id = ocr_workflow.submit_task(
+            document_id=document_id,
+            image_path=f"s3://{bucket_name}/{object_key}",
+            max_retries=3
+        )
+        
+        # Schedule background processing
+        if background_tasks:
+            background_tasks.add_task(ocr_workflow.process_task, job_id)
+        
+        return OCRProcessResponse(
+            job_id=job_id,
+            document_id=document_id,
+            status="queued",
+            message="S3 document processing initiated with AWS Textract"
+        )
+    
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Failed to process S3 document: {str(e)}"
         )

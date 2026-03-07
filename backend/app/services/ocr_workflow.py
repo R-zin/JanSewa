@@ -10,8 +10,9 @@ from datetime import datetime
 from enum import Enum
 from pydantic import BaseModel
 import asyncio
-from .ocr_engine import OCREngine
+from .ocr_engine_hybrid import HybridOCREngine, OCREngineType
 from .document_parser import DocumentParser, ParsedDocument
+from ..core.config import settings
 
 
 class ProcessingStatus(str, Enum):
@@ -47,7 +48,12 @@ class OCRWorkflow:
     
     def __init__(self):
         """Initialize OCR workflow"""
-        self.ocr_engine = OCREngine()
+        # Initialize hybrid OCR engine based on configuration
+        engine_type = getattr(settings, 'OCR_ENGINE', 'auto')
+        self.ocr_engine = HybridOCREngine(
+            preferred_engine=OCREngineType(engine_type),
+            aws_region=settings.AWS_REGION
+        )
         self.document_parser = DocumentParser()
         self.tasks: Dict[str, OCRTask] = {}
         self.processing_queue: List[str] = []

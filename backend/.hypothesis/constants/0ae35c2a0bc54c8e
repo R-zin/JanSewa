@@ -1,0 +1,4 @@
+# file: /Users/razinm/Downloads/Jan Sewa/backend/app/services/ocr_workflow.py
+# hypothesis_version: 6.151.9
+
+[0.0, 10.0, 20.0, 50.0, 60.0, 90.0, 100.0, 'Finalizing results', 'OCR_ENGINE', 'auto', 'average_confidence', 'completed', 'completed_at', 'confidence', 'confidence_scores', 'created_at', 'document_id', 'document_type', 'error', 'failed', 'fields_count', 'fields_extracted', 'processing', 'processing_time', 'progress', 'queued', 'result', 'retry_count', 'retrying', 'started_at', 'status', 'success_rate', 'suitable', 'task_id', 'text', 'timestamp', 'total_tasks']
