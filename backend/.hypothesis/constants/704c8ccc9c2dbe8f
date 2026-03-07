@@ -1,0 +1,4 @@
+# file: /Users/razinm/Downloads/Jan Sewa/backend/app/models/session.py
+# hypothesis_version: 6.151.9
+
+['clarification', 'document_inquiry', 'document_list', 'eligibility_check', 'eligibility_result', 'en', 'error', 'manual', 'service_guidance', 'service_guide', 'status_info', 'status_tracking']

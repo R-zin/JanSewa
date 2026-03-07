@@ -1,0 +1,4 @@
+# file: /Users/razinm/Downloads/Jan Sewa/backend/app/services/document_manager.py
+# hypothesis_version: 6.151.9
+
+[365, 'address_proof', 'certificate', 'default', 'identity_proof', 'jpeg', 'jpg', 'month', 'pdf', 'png', 'year']

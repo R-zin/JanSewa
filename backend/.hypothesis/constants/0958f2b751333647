@@ -1,0 +1,4 @@
+# file: /Users/razinm/Downloads/Jan Sewa/backend/app/services/document_storage.py
+# hypothesis_version: 6.151.9
+
+[100, 1024, '/archived/', '/documents/', 'ADHAR', 'DL', 'DRVLC', 'EDU', 'PAN', 'Unknown', 'VAHAN', 'VOTER', 'aadhaar', 'address', 'archived', 'archived_count', 'bill', 'board', 'caste', 'category', 'degree', 'digilocker_metadata', 'diploma', 'doc_name', 'doc_type', 'document_id', 'document_name', 'document_type', 'domicile', 'driving', 'election', 'expiration_date', 'expiration_status', 'expired', 'expiring_soon', 'expiry_date', 'failed_count', 'file_name', 'file_size', 'id', 'income', 'income tax', 'is_digilocker', 'issuer', 'license', 'marksheet', 'no_expiration', 'pan', 'rc', 'registration', 's3_key', 'scan_result', 'total_processed', 'uidai', 'university', 'unknown', 'upload_date', 'user_id', 'utility', 'valid', 'vehicle', 'voter']

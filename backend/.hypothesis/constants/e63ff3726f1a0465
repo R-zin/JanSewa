@@ -1,0 +1,4 @@
+# file: /Users/razinm/Downloads/Jan Sewa/backend/app/models/service.py
+# hypothesis_version: 6.151.9
+
+['aadhaar', 'certificate', 'data_access', 'en', 'hi', 'identity_card', 'record_modification', 'status_inquiry']

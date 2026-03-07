@@ -1,0 +1,4 @@
+# file: /Users/razinm/Downloads/Jan Sewa/backend/app/services/session_manager.py
+# hypothesis_version: 6.151.9
+
+['aadhaar_number', 'address', 'conversation_history', 'en', 'language', 'pan_number', 'personal_info', 'phone', 'session_id', 'start_time', 'temporary_context', 'user_id']

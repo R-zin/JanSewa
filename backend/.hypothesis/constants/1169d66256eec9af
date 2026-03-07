@@ -1,0 +1,4 @@
+# file: /Users/razinm/Downloads/Jan Sewa/backend/app/services/digilocker_auth.py
+# hypothesis_version: 6.151.9
+
+[3600, '&', 'Bearer', 'access_token', 'auth_url', 'client_id', 'code', 'expires_at', 'expires_in', 'is_expired', 'public', 'redirect_uri', 'refresh_token', 'response_type', 'scope', 'state', 'token_type', 'user_id']

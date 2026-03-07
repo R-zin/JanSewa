@@ -1,0 +1,4 @@
+# file: /Users/razinm/Downloads/Jan Sewa/backend/app/services/privacy_controls.py
+# hypothesis_version: 6.151.9
+
+['\\b\\d{10}\\b', 'aadhaar_number', 'address', 'conversation_context', 'critical', 'email', 'guidance_only', 'info', 'link_verification', 'message', 'pan_number', 'password', 'personal_info', 'personal_name', 'phone_number', 'recommendations', 'sensitive_data_entry', 'sensitive_info', 'severity', 'user_preference', 'warning', 'warning_type']

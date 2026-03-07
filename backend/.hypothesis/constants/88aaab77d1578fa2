@@ -1,0 +1,4 @@
+# file: /Users/razinm/Downloads/Jan Sewa/backend/app/services/eligibility_engine.py
+# hypothesis_version: 6.151.9
+
+[1.0, 'category_check', 'equals', 'exists', 'value', 'yes_no']

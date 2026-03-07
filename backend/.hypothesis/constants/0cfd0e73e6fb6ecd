@@ -1,0 +1,4 @@
+# file: /Users/razinm/Downloads/Jan Sewa/backend/app/services/audit_logger.py
+# hypothesis_version: 6.151.9
+
+[100, 'categorize', 'delete', 'preview', 'retrieve', 'share', 'update', 'upload', 'version_upload']

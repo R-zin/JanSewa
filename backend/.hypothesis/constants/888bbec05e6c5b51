@@ -1,0 +1,4 @@
+# file: /Users/razinm/Downloads/Jan Sewa/backend/app/services/expiration_scheduler.py
+# hypothesis_version: 6.151.9
+
+[3600, 'archived_count', 'check_timestamp', 'document_id', 'document_name', 'error', 'expiration_date', 'expired', 'expired_documents', 'expiring_soon', 'failed_count', 'file_name', 'id', 'total_warnings', 'user_id', 'warnings', 'warnings_count']

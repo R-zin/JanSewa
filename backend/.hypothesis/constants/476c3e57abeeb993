@@ -1,0 +1,4 @@
+# file: /Users/razinm/Downloads/Jan Sewa/backend/app/models/document.py
+# hypothesis_version: 6.151.9
+
+['address_proof', 'certificate', 'education', 'identity', 'income', 'other', 'vehicle']

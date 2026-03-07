@@ -1,0 +1,4 @@
+# file: /Users/razinm/Downloads/Jan Sewa/backend/app/services/authentication.py
+# hypothesis_version: 6.151.9
+
+['User not found', 'auto', 'bcrypt', 'bearer', 'email', 'en', 'exp', 'new_password', 'password', 'password_reset', 'purpose', 'user_id', 'utf-8']

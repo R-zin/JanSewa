@@ -1,0 +1,4 @@
+# file: /Users/razinm/Downloads/Jan Sewa/backend/app/services/malware_scanner.py
+# hypothesis_version: 6.151.9
+
+[b'<script>', b'eval(', b'exec(', 1000, 1024, '.doc', '.docx', '.jpeg', '.jpg', '.pdf', '.png', 'EICAR-Test-File', 'File is empty', 'active', 'clamav', 'clean', 'details', 'error', 'is_safe', 'malicious', 'mock', 'scan_duration_ms', 'scanner_type', 'status', 'supported_formats', 'suspicious', 'threat_level', 'threat_name']

@@ -1,0 +1,199 @@
+/* Government Services Assistant Extension Styles */
+
+#gov-services-guidance-panel {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 350px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 999999;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.guidance-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 12px 12px 0 0;
+}
+
+.guidance-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+#toggle-guidance {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#toggle-guidance:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.guidance-content {
+  padding: 16px;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.step-header {
+  margin-bottom: 12px;
+}
+
+.step-number {
+  display: inline-block;
+  background: #e0e7ff;
+  color: #4f46e5;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.step-header h4 {
+  margin: 8px 0 0 0;
+  font-size: 16px;
+  color: #1f2937;
+}
+
+.step-description {
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 12px 0;
+}
+
+.step-progress {
+  width: 100%;
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 3px;
+  margin: 16px 0;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.3s ease;
+}
+
+.checklist-header {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  margin: 16px 0 8px 0;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  margin: 4px 0;
+  background: #f9fafb;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.checklist-item.completed {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.checklist-item input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+.guidance-controls {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.guidance-controls button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+#prev-step {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+#prev-step:hover {
+  background: #e5e7eb;
+}
+
+#next-step {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+#next-step:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* Field highlighting */
+.gov-services-highlight {
+  outline: 3px solid #667eea !important;
+  outline-offset: 2px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    outline-color: #667eea;
+  }
+  50% {
+    outline-color: #764ba2;
+  }
+}
+
+/* Tooltip */
+.gov-services-tooltip {
+  position: absolute;
+  background: #1f2937;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  margin-top: 4px;
+  z-index: 999998;
+  pointer-events: none;
+}
+
+.gov-services-tooltip::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 12px;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid #1f2937;
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Government Services Assistant</title>
+  <style>
+    body {
+      width: 320px;
+      padding: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+    }
+    
+    h2 {
+      margin: 0 0 16px 0;
+      font-size: 18px;
+      color: #1f2937;
+    }
+    
+    .status {
+      padding: 12px;
+      background: #f3f4f6;
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+    
+    .status-item {
+      display: flex;
+      justify-content: space-between;
+      margin: 8px 0;
+      font-size: 14px;
+    }
+    
+    .status-label {
+      color: #6b7280;
+    }
+    
+    .status-value {
+      font-weight: 600;
+      color: #1f2937;
+    }
+    
+    .toggle-section {
+      margin: 16px 0;
+    }
+    
+    .toggle-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 14px;
+      color: #374151;
+      margin-bottom: 8px;
+    }
+    
+    .toggle-switch {
+      position: relative;
+      width: 44px;
+      height: 24px;
+    }
+    
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #cbd5e1;
+      transition: 0.3s;
+      border-radius: 24px;
+    }
+    
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.3s;
+      border-radius: 50%;
+    }
+    
+    input:checked + .slider {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    input:checked + .slider:before {
+      transform: translateX(20px);
+    }
+    
+    .action-button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+    
+    .action-button:hover {
+      opacity: 0.9;
+    }
+    
+    .link {
+      display: block;
+      text-align: center;
+      color: #667eea;
+      text-decoration: none;
+      font-size: 13px;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h2>🏛️ Gov Services</h2>
+  
+  <div class="status">
+    <div class="status-item">
+      <span class="status-label">Portal:</span>
+      <span class="status-value" id="portal-name">Not detected</span>
+    </div>
+    <div class="status-item">
+      <span class="status-label">Guidance:</span>
+      <span class="status-value" id="guidance-status">Inactive</span>
+    </div>
+  </div>
+  
+  <div class="toggle-section">
+    <div class="toggle-label">
+      <span>Enable Guidance</span>
+      <label class="toggle-switch">
+        <input type="checkbox" id="guidance-toggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+  
+  <div class="toggle-section">
+    <div class="toggle-label">
+      <span>Auto-fill Forms</span>
+      <label class="toggle-switch">
+        <input type="checkbox" id="autofill-toggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+  
+  <button class="action-button" id="open-dashboard">
+    Open Dashboard
+  </button>
+  
+  <a href="#" class="link" id="help-link">Help & Documentation</a>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

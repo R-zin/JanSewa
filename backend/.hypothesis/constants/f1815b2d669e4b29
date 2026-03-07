@@ -1,0 +1,4 @@
+# file: /Users/razinm/Downloads/Jan Sewa/backend/app/services/conversational_agent.py
+# hypothesis_version: 6.151.9
+
+['description', 'document_inquiry', 'eligibility_check', 'gemini-pro', 'portal_name', 'service_guidance', 'status_tracking', 'url']

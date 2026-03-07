@@ -1,0 +1,4 @@
+# file: /Users/razinm/Downloads/Jan Sewa/backend/app/api/v1/endpoints/ocr.py
+# hypothesis_version: 6.151.9
+
+[0.85, 202, 400, 404, 500, '/history', '/learning/insights', '/process', '/statistics', '/{job_id}/result', '/{job_id}/retry', '/{job_id}/status', 'action', 'completed', 'confidence', 'confidence_before', 'confirmed', 'corrected_value', 'duration_seconds', 'edited', 'eng', 'field_name', 'highlight_color', 'job_id', 'needs_review', 'normalized_value', 'original_value', 'queued', 'rejected', 'result', 'result_summary', 'status', 'task_id', 'timestamp', 'total_corrections', 'value']

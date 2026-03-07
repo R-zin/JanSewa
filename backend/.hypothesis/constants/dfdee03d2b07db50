@@ -1,0 +1,4 @@
+# file: /Users/razinm/Downloads/Jan Sewa/backend/app/services/manual_correction.py
+# hypothesis_version: 6.151.9
+
+[0.0, 0.3, 0.75, 0.85, 0.9, 'Session not found', 'action', 'confidence', 'confirm', 'confirmed', 'correct_value', 'document_id', 'document_type', 'duration_seconds', 'edit', 'edited', 'error', 'errors', 'field', 'field_error_rates', 'field_name', 'final_value', 'green', 'highlight_color', 'incorrect_value', 'message', 'needs_review', 'red', 'reject', 'rejected', 'session_id', 'timestamp', 'total', 'total_corrections', 'value', 'was_correct', 'was_corrected', 'yellow']

@@ -1,0 +1,4 @@
+# file: /Users/razinm/Downloads/Jan Sewa/backend/app/services/authorization.py
+# hypothesis_version: 6.151.9
+
+['AutomationSession', 'Credential', 'Credential not found', 'Document', 'Document not found', 'ServiceRequest', 'User', 'admin', 'delete_own_documents', 'manage_system', 'manage_users', 'read_all_automation', 'read_all_documents', 'read_all_requests', 'read_all_sessions', 'read_own_automation', 'read_own_credentials', 'read_own_documents', 'read_own_requests', 'read_own_sessions', 'start_own_automation', 'user', 'view_audit_logs', 'write_own_documents', 'write_own_requests', 'write_own_sessions']

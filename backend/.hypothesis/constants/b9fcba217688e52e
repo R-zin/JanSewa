@@ -1,0 +1,4 @@
+# file: /Users/razinm/Downloads/Jan Sewa/backend/app/services/digilocker_client_enhanced.py
+# hypothesis_version: 6.151.9
+
+[60.0, '401', '404', '429', '502', '503', 'authentication', 'by_type', 'data', 'doc_id', 'error', 'expired', 'failed', 'import_document', 'invalid', 'list_documents', 'message', 'not found', 'operation', 'original_error', 'partial_success', 'rate limit', 'success', 'successful', 'token', 'too many requests', 'total', 'total_errors', 'unauthorized', 'unavailable', 'unknown', 'unknown_error', 'user_id']

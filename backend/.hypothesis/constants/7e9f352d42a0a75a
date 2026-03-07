@@ -1,0 +1,4 @@
+# file: /Users/razinm/Downloads/Jan Sewa/backend/app/models/automation.py
+# hypothesis_version: 6.151.9
+
+['cancelled', 'click', 'completed', 'failed', 'in_progress', 'initializing', 'navigate', 'paused', 'select', 'submit', 'type', 'upload', 'wait', 'waiting_captcha', 'waiting_confirmation', 'waiting_otp']

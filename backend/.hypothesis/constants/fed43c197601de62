@@ -1,0 +1,4 @@
+# file: /Users/razinm/Downloads/Jan Sewa/backend/app/services/metrics_service.py
+# hypothesis_version: 6.151.9
+
+[0.0, -1000, 100, 200, 400, 1000, 10000, 'SELECT', 'auth', 'automation', 'cache', 'chat', 'counter', 'dashboard', 'database', 'digilocker', 'documents', 'duration_ms', 'endpoints', 'gauge', 'histogram', 'inf', 'ocr', 'other', 'query_type', 'storage', 'table', 'timer', 'timestamp', 'usage']

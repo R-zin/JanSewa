@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "Government Services Assistant",
+  "version": "1.0.0",
+  "description": "Step-by-step guidance for government portal navigation",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://myaadhaar.uidai.gov.in/*",
+    "https://www.onlineservices.nsdl.com/*",
+    "https://parivahan.gov.in/*",
+    "https://voters.eci.gov.in/*",
+    "https://edistrict.gov.in/*",
+    "https://crsorgi.gov.in/*",
+    "https://passportindia.gov.in/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://myaadhaar.uidai.gov.in/*",
+        "https://www.onlineservices.nsdl.com/*",
+        "https://parivahan.gov.in/*",
+        "https://voters.eci.gov.in/*",
+        "https://edistrict.gov.in/*",
+        "https://crsorgi.gov.in/*",
+        "https://passportindia.gov.in/*"
+      ],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

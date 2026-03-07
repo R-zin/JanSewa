@@ -1,0 +1,4 @@
+# file: /Users/razinm/Downloads/Jan Sewa/backend/app/services/digilocker_errors.py
+# hypothesis_version: 6.151.9
+
+['details', 'doc_id', 'document_not_found', 'error', 'invalid_token', 'message', 'network_error', 'rate_limit_exceeded', 'retry_after', 'service_unavailable', 'unknown_error', 'validation_failed']
