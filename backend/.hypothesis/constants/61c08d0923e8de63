@@ -1,0 +1,4 @@
+# file: /Users/razinm/Downloads/Jan Sewa/backend/app/services/ocr_engine_textract.py
+# hypothesis_version: 6.151.9
+
+[0.0, 1.0, 100.0, 600, 800, 1024, 1080, 1920, 'BlockType', 'Blocks', 'Bucket', 'Bytes', 'CELL', 'CHILD', 'Code', 'ColumnIndex', 'Confidence', 'Document', 'EntityTypes', 'Error', 'FAILED', 'FORMS', 'Id', 'IdentityDocuments', 'Ids', 'JobId', 'JobStatus', 'KEY', 'KEY_VALUE_SET', 'LINE', 'Name', 'NextToken', 'Queries', 'QueriesConfig', 'Relationships', 'RowIndex', 'S3Object', 'SUCCEEDED', 'StatusMessage', 'TABLE', 'TABLES', 'Text', 'Type', 'Unknown error', 'Use async processing', 'Use sync processing', 'VALUE', 'ValueDetection', 'WORD', 'ap-south-1', 'auto', 'columns', 'confidence', 'data', 'document_type', 'en', 'eng', 'fields', 'forms', 'height', 'hi', 'hin', 'key', 'quality_score', 'recommendation', 'resolution_ok', 'rows', 's3', 'size_mb', 'size_ok', 'suitable_for_ocr', 'ta', 'tables', 'tam', 'te', 'tel', 'text', 'textract', 'value', 'width']

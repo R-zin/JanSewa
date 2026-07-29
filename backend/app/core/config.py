@@ -47,6 +47,10 @@ class Settings(BaseSettings):
     LOG_ROTATION_MAX_BYTES: int = 10 * 1024 * 1024  # 10MB
     LOG_ROTATION_BACKUP_COUNT: int = 5
     
+    # OCR Configuration
+    OCR_ENGINE: str = "auto"  # Options: auto, textract, tesseract
+    OCR_USE_TEXTRACT: bool = True  # Enable AWS Textract for production
+    
     class Config:
         env_file = ".env"
         case_sensitive = True

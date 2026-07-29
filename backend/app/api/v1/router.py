@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from app.api.v1.endpoints import agent, documents, automation, dashboard, digilocker, auth, metrics, speech  # ocr, workflows temporarily disabled
+from app.api.v1.endpoints import agent, documents, automation, dashboard, digilocker, auth, metrics, speech, ocr  # workflows temporarily disabled
 
 api_router = APIRouter()
 
@@ -12,7 +12,7 @@ api_router.include_router(dashboard.router, prefix="/dashboard", tags=["dashboar
 api_router.include_router(digilocker.router, prefix="/digilocker", tags=["digilocker"])
 # api_router.include_router(workflows.router, prefix="/workflows", tags=["workflows"])  # Temporarily disabled
 api_router.include_router(metrics.router, prefix="/metrics", tags=["metrics"])
-# api_router.include_router(ocr.router, prefix="/ocr", tags=["ocr"])  # Temporarily disabled - requires zbar library
+api_router.include_router(ocr.router, prefix="/ocr", tags=["ocr"])  # Re-enabled with AWS Textract support
 api_router.include_router(speech.router, prefix="/speech", tags=["speech"])
 
 @api_router.get("/")

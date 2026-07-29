@@ -1,0 +1,4 @@
+# file: /Users/razinm/Downloads/Jan Sewa/backend/app/services/ocr_engine_hybrid.py
+# hypothesis_version: 6.151.9
+
+[0.0, 'active_engine', 'ap-south-1', 'auto', 'basic_ocr', 'capabilities', 'eng', 'forms_extraction', 'hin', 'identity_documents', 'preferred_engine', 'qr_codes', 's3_integration', 'supported_languages', 'tables_extraction', 'tam', 'tel', 'tesseract', 'tesseract_available', 'textract', 'textract_available']

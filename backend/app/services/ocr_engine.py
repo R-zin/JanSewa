@@ -2,10 +2,18 @@ import pytesseract
 from PIL import Image
 import cv2
 import numpy as np
-from pyzbar import pyzbar
 import io
 import logging
 from typing import Dict, Any, List, Optional, Tuple
+
+# Optional QR code support
+try:
+    from pyzbar import pyzbar
+    PYZBAR_AVAILABLE = True
+except ImportError:
+    PYZBAR_AVAILABLE = False
+    logger = logging.getLogger(__name__)
+    logger.warning("pyzbar not available - QR code extraction disabled")
 
 logger = logging.getLogger(__name__)
 
@@ -69,6 +77,10 @@ class OCREngine:
     
     def extract_qr_code(self, image_data: bytes) -> Optional[str]:
         """Extract data from QR code"""
+        if not PYZBAR_AVAILABLE:
+            logger.warning("QR code extraction requires pyzbar library")
+            return None
+            
         try:
             nparr = np.frombuffer(image_data, np.uint8)
             img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)

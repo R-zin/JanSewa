@@ -1,0 +1,4 @@
+# file: /Users/razinm/Downloads/Jan Sewa/backend/app/services/ocr_engine.py
+# hypothesis_version: 6.151.9
+
+[0.0, 1.0, 2.0, 100.0, 100, 255, 500, 600, 800, '--oem 3 --psm 6', '-1', 'blur_ok', 'conf', 'eng', 'hin', 'quality_score', 'resolution_ok', 'suitable_for_ocr', 'tam', 'tel', 'utf-8']
